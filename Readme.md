@@ -1,4 +1,4 @@
-# backend-vue-movie / Api TMDB
+# backend-react-movie / Api TMDB
 
 ## Technologies:
 
