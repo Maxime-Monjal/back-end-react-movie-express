@@ -23,10 +23,12 @@ app.get("/", (request, response) => {
   }
 });
 
-app.get("/toprated", (request, response) => {
+app.get("/toprated/:page", (request, response) => {
   try {
     axios
-      .get(`${BASE_URL}top_rated?api_key=${API_SECRET}&language=fr&page=1`)
+      .get(
+        `${BASE_URL}top_rated?api_key=${API_SECRET}&language=fr&page=${request.params.page}`
+      )
       .then((res) => {
         response.status(200);
         response.send(res.data.results);
@@ -36,10 +38,12 @@ app.get("/toprated", (request, response) => {
     response.status(500);
   }
 });
-app.get("/upcoming", (request, response) => {
+app.get("/upcoming/:page", (request, response) => {
   try {
     axios
-      .get(`${BASE_URL}upcoming?api_key=${API_SECRET}&language=fr&page=1`)
+      .get(
+        `${BASE_URL}upcoming?api_key=${API_SECRET}&language=fr&page=${request.params.page}`
+      )
       .then((res) => {
         response.status(200);
         response.send(res.data.results);
